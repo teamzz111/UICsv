@@ -68,33 +68,40 @@ header nav ul li a {
   text-align: center;
 }
 
-section.step1 .container {
+section.step1, section.step2, section.step3 {
+  padding: 3%;
+}
+
+section.step1 .container, section.step2 .container, section.step3 .container {
   margin-top: 1.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-section.step1 .container .izq {
+section.step1 .container .izq, section.step2 .container .izq, section.step3 .container .izq {
   width: 50%;
   text-align: center;
 }
 
-section.step1 .container .izq img {
+section.step1 .container .izq img, section.step2 .container .izq img, section.step3 .container .izq img {
   max-width: 400px;
+  max-height: 265px;
 }
 
-section.step1 .container .der {
+section.step1 .container .der, section.step2 .container .der, section.step3 .container .der {
   width: 50%;
 }
 
 section.step1 .container .der h4,
-section.step1 .container .der p {
+section.step1 .container .der p, section.step2 .container .der h4,
+section.step2 .container .der p, section.step3 .container .der h4,
+section.step3 .container .der p {
   font-family: 'Open Sans';
   text-align: center;
 }
 
-section.step1 .container .der form {
+section.step1 .container .der form, section.step2 .container .der form, section.step3 .container .der form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,7 +116,7 @@ section.step1 .container .der form {
           align-items: center;
 }
 
-section.step1 .container .der input[type=file] {
+section.step1 .container .der input[type=file], section.step2 .container .der input[type=file], section.step3 .container .der input[type=file] {
   outline: 0;
   opacity: 0;
   pointer-events: none;
@@ -119,7 +126,7 @@ section.step1 .container .der input[type=file] {
           user-select: none;
 }
 
-section.step1 .container .der input[type="submit"] {
+section.step1 .container .der input[type="submit"], section.step2 .container .der input[type="submit"], section.step3 .container .der input[type="submit"] {
   margin: 0.7em;
   max-width: 200px;
   background-color: #0077ff;
@@ -131,12 +138,12 @@ section.step1 .container .der input[type="submit"] {
   transition: 1s linear;
 }
 
-section.step1 .container .der input[type="submit"]:hover {
+section.step1 .container .der input[type="submit"]:hover, section.step2 .container .der input[type="submit"]:hover, section.step3 .container .der input[type="submit"]:hover {
   cursor: pointer;
   background: #0847bb;
 }
 
-section.step1 .container .der .label {
+section.step1 .container .der .label, section.step2 .container .der .label, section.step3 .container .der .label {
   width: 90%;
   margin: auto;
   margin-top: 1.1em;
@@ -159,30 +166,179 @@ section.step1 .container .der .label {
   text-align: center;
 }
 
-section.step1 .container .der .label i {
+section.step1 .container .der .label i, section.step2 .container .der .label i, section.step3 .container .der .label i {
   display: block;
   font-size: 42px;
 }
 
 section.step1 .container .der .label i,
-section.step1 .container .der .label .title {
+section.step1 .container .der .label .title, section.step2 .container .der .label i,
+section.step2 .container .der .label .title, section.step3 .container .der .label i,
+section.step3 .container .der .label .title {
   color: grey;
   -webkit-transition: 200ms color;
   transition: 200ms color;
   margin: 0.2em;
 }
 
-section.step1 .container .der .label .title {
+section.step1 .container .der .label .title, section.step2 .container .der .label .title, section.step3 .container .der .label .title {
   font-family: 'Open Sans';
   margin-top: 0.7em;
 }
 
-section.step1 .container .der .label:hover {
+section.step1 .container .der .label:hover, section.step2 .container .der .label:hover, section.step3 .container .der .label:hover {
   border: 2px solid black;
 }
 
 section.step1 .container .der .label:hover i,
-section.step1 .container .der .label:hover .title {
+section.step1 .container .der .label:hover .title, section.step2 .container .der .label:hover i,
+section.step2 .container .der .label:hover .title, section.step3 .container .der .label:hover i,
+section.step3 .container .der .label:hover .title {
   color: black;
+}
+
+section.step2 {
+  background: #fafafa;
+}
+
+section.step3 .container .der .message {
+  background: red;
+  padding: 2%;
+  color: white;
+  max-width: 200px;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin-top: 5em;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-roller div {
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-transform-origin: 32px 32px;
+          transform-origin: 32px 32px;
+}
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #000;
+  margin: -3px 0 0 -3px;
+}
+
+.lds-roller div:nth-child(1) {
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+}
+
+.lds-roller div:nth-child(2) {
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+}
+
+.lds-roller div:nth-child(3) {
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+}
+
+.lds-roller div:nth-child(4) {
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+}
+
+.lds-roller div:nth-child(5) {
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+}
+
+.lds-roller div:nth-child(6) {
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+}
+
+.lds-roller div:nth-child(7) {
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+}
+
+.lds-roller div:nth-child(8) {
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+}
+
+@-webkit-keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
