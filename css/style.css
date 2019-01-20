@@ -7,6 +7,7 @@
 .container {
   max-width: 1200px;
   width: 100%;
+  margin: auto;
 }
 
 header nav {
@@ -22,6 +23,8 @@ header nav ul {
           justify-content: flex-end;
   padding: 1%;
   width: 100%;
+  -webkit-box-shadow: -1px 10px 5px -6px rgba(0, 0, 0, 0.31);
+  box-shadow: -1px 10px 5px -6px rgba(0, 0, 0, 0.31);
   list-style-type: none;
 }
 
@@ -57,10 +60,129 @@ header nav ul li a {
   justify-items: center;
 }
 
-.main h1, .main h2 {
+.main h1,
+.main h2 {
   color: white;
   font-family: 'Open Sans';
   font-weight: 300;
   text-align: center;
+}
+
+section.step1 .container {
+  margin-top: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section.step1 .container .izq {
+  width: 50%;
+  text-align: center;
+}
+
+section.step1 .container .izq img {
+  max-width: 400px;
+}
+
+section.step1 .container .der {
+  width: 50%;
+}
+
+section.step1 .container .der h4,
+section.step1 .container .der p {
+  font-family: 'Open Sans';
+  text-align: center;
+}
+
+section.step1 .container .der form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.step1 .container .der input[type=file] {
+  outline: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+section.step1 .container .der input[type="submit"] {
+  margin: 0.7em;
+  max-width: 200px;
+  background-color: #0077ff;
+  color: white;
+  border: 1px solid black;
+  padding: 1% 2em 1% 2em;
+  font-size: 1em;
+  -webkit-transition: 1s linear;
+  transition: 1s linear;
+}
+
+section.step1 .container .der input[type="submit"]:hover {
+  cursor: pointer;
+  background: #0847bb;
+}
+
+section.step1 .container .der .label {
+  width: 90%;
+  margin: auto;
+  margin-top: 1.1em;
+  border: 2px dashed grey;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.2em;
+  -webkit-transition: border 300ms ease;
+  transition: border 300ms ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+section.step1 .container .der .label i {
+  display: block;
+  font-size: 42px;
+}
+
+section.step1 .container .der .label i,
+section.step1 .container .der .label .title {
+  color: grey;
+  -webkit-transition: 200ms color;
+  transition: 200ms color;
+  margin: 0.2em;
+}
+
+section.step1 .container .der .label .title {
+  font-family: 'Open Sans';
+  margin-top: 0.7em;
+}
+
+section.step1 .container .der .label:hover {
+  border: 2px solid black;
+}
+
+section.step1 .container .der .label:hover i,
+section.step1 .container .der .label:hover .title {
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */

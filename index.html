@@ -6,6 +6,8 @@
     <title>Convertidor CSV a MySQL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
     <script src="main.js"></script>
 </head>
@@ -22,7 +24,28 @@
     </header>
     <div class = "main">
         <h1>INSERTAR USUARIOS CON ARCHIVOS CSV</h1>
-        <h2>Por favor siga los pasos, querido usuario.</h2>
-    </header>
+        <h2>Por favor siga los pasos y procure revisar que el archivo esté bien codificado.</h2>
+    </div>
+
+
+    <section class="step1">
+        <div class="container">
+            <div class="izq">
+                <img src="assets/undraw_followers_4i0p.svg" alt="">
+            </div>
+            <div class="der">
+                <h4>Paso #1</h4>
+                <p>Sube el archivo</p>
+                <form enctype="multipart/form-data" action="uploader.php" method="POST">
+                    <label class="label">
+                            <i class="material-icons">attach_file</i>
+                            <span class="title">Añade el archivo .csv</span>
+                            <input type="file" />
+                          </label>
+                          <input type="submit" value="Subir archivo">
+                    </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
