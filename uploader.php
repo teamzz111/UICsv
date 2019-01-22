@@ -4,12 +4,18 @@
     global $fieldsExpected;
     $fieldsExpected = 7;
 
+    // DB Connection
+
+    $user = "root";
+    $password = "";
+    $server = "localhost";
+    $db = "cliente";
 
     if ( isset($_FILES["file"])) 
     {
         if ($_FILES["file"]["error"] > 0) 
         {
-            echo "Ocurrió una tragedia: " . $_FILES["file"]["error"] . "<br />";
+            echo json_encode(["status" => 0, "message" => $_FILES["file"]["error"]]);
         }
         else 
         {
@@ -37,8 +43,6 @@
                     $foundCharacter = ';';
                 }
 
-                
-                
                 $firstLine = explode($foundCharacter, $testingString);
                 
                 // Special check for first line
@@ -62,7 +66,12 @@
                     $index++;
                 }
                 fclose($file);
-                echo $multiQuery;
+                
+                $connection = new mysqli($server, $user, $password, $db);
+    
+                echo json_encode(["status" => 1, "message" => "Verificación exitosa"]);
+
+                $connection->close();
             }
         }
 
@@ -78,52 +87,54 @@ function checkParameters($line, $fieldsExpected, $index)
 
     if(sizeof($line) <  $fieldsExpected)
     {
-        echo "Campos incompletos en la línea " . $index;
+        echo json_encode(["status" => 0, "message" => "Campos incompletos en $index"]);
         die();       
     }
 
     if(sizeof($line) >  $fieldsExpected)
     {
-        echo "Hay más parámetros de los esperados en la línea " . $index;
+        echo json_encode(["status" => 0, "message" => "Hay más campos de los esperados en la línea $index"]);
         die();       
     }
 
-    if(!is_numeric($line[0]))
+    if(!is_numeric(trim($line[0])))
     {
-        echo "Campo cédula debe ser numérico en la línea " . $index;
+        echo json_encode(["status" => 0, "message" => "Campos cédula debe ser numérico en $index"]);
         die();
     }
-    if(!(preg_match($pattern, $line[1]) === 1))
+    if(!(preg_match($pattern, trim($line[1])) === 1))
     {
-        echo "Campo correo debe ser válido en la línea " . $index;
+        echo json_encode(["status" => 0, "message" => "Campo correo no válido en la línea $index"]);
         die();
     }
     
-    if(strlen($line[2]) < 1)
+    if(strlen(trim($line[2])) < 1)
     {
-        echo "Campo nit deben tener contenido o no sobrepasar los 64 carácteres " . $index;
+        echo json_encode(["status" => 0, "message" => "Campos nit deben tener contenido en la línea $index"]);
         die();
     }
 
-    $nombre = strlen($line[3]);
-    $apellido = strlen($line[4]);
+    $nombre = strlen(trim($line[3]));
+    $apellido = strlen(trim($line[4]));
 
     if($nombre == 0 || $nombre > 64 || $apellido == 0 || $apellido > 64)
     {
-        echo "Campo nombres y apellidos deben tener contenido o no sobrepasar los 64 carácteres " . $index;
+        echo json_encode(["status" => 0, "message" => "Campos nombre y apellidos no deben pasar los 64 carácteres en la línea $index"]);
         die();
     }
 
-    if(!is_numeric($line[5]))
+    if(!is_numeric(trim($line[5])))
     {
-        echo "Campo tipo_usuario no es válido en la línea " . $index;
+        echo json_encode(["status" => 0, "message" => "Campos tipo_cliente no válido en la línea $index"]);
         die();
     }
-    
-    if(!is_numeric((int)$line[6])){
-        echo "Campo teléfono no es válido en la línea " . $index;
+
+    $newtext = str_replace("\n", '', $line[6]);
+
+    if(!is_numeric(trim("$newtext"))){
+        echo json_encode(["status" => 0, "message" => "Campos teléfono debe ser numérico en la línea $index"]);
         die();
     }
         
-    }
+}
 ?>
