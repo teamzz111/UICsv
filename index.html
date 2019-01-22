@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Convertidor CSV a MySQL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,7 +23,7 @@
             </ul>
         </nav>
     </header>
-    <div class = "main">
+    <div class="main">
         <h1>INSERTAR USUARIOS CON ARCHIVOS CSV</h1>
         <h2>Por favor siga los pasos y procure revisar que el archivo esté bien codificado.</h2>
     </div>
@@ -36,14 +37,14 @@
             <div class="der">
                 <h4>Paso #1</h4>
                 <p>Sube el archivo</p>
-                <form id = "fileToUpload"  enctype="multipart/form-data" action="uploader.php" method="POST" id = "form">
+                <form id="fileToUpload" enctype="multipart/form-data" action="uploader.php" method="POST" id="form">
                     <label class="label">
-                            <i class="material-icons">attach_file</i>
-                            <span class="title">Añade el archivo .csv</span>
-                            <input type="file" accept = ".csv" name="file" id="file"  />
-                          </label>
-                          <input type="submit" value="Subir archivo">
-                    </form>
+                        <i class="fas fa-paperclip"></i>
+                        <span class="title">Añade el archivo .csv</span>
+                        <input type="file" accept=".csv" name="file" id="file" />
+                    </label>
+                    <input type="submit" value="Subir archivo">
+                </form>
             </div>
         </div>
     </section>
@@ -55,7 +56,16 @@
             <div class="der">
                 <h4>Paso #2</h4>
                 <p>Espera mientras el algoritmo haga su trabajo...</p>
-                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
     </section>
@@ -70,16 +80,15 @@
                 <div class="message">
                     <p>Ocurrió una tragedia</p>
                 </div>
-                <p style = "margin-top: 2em">Procedurlalerror #aqweqw in</p>
+                <p style="margin-top: 2em">Procedurlalerror #aqweqw in</p>
             </div>
         </div>
     </section>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
 
     <script src="js/index.js"></script>
 </body>
+
 </html>
