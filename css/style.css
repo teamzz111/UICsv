@@ -456,4 +456,29 @@ section.step3 .container .der .message {
             transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 792px) {
+  section.step1 header, section.step2 header, section.step3 header {
+    padding: 4%;
+  }
+  section.step1 .container .izq, section.step2 .container .izq, section.step3 .container .izq {
+    display: none;
+  }
+  section.step1 .container .der, section.step2 .container .der, section.step3 .container .der {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  header nav ul {
+    display: none;
+  }
+  .main {
+    padding: 4%;
+  }
+  .main h1, .main h2 {
+    font-size: 1.1em;
+    margin-top: 1em;
+  }
+}
 /*# sourceMappingURL=style.css.map */

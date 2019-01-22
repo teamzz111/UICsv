@@ -354,3 +354,37 @@ section.step3 {
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width: 792px) {
+    section.step1, section.step2, section.step3{
+        header{
+            padding: 4%;
+        }
+        .container{
+            .izq{
+                display: none;
+            }
+            .der{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 470px) {
+    header{
+        nav{
+            ul{
+                display: none;
+            }
+        }
+    }
+
+    .main{
+        padding: 4%;
+        h1,h2{
+            font-size: 1.1em;
+            margin-top: 1em;
+        }
+    }
+}

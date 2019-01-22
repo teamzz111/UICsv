@@ -49,7 +49,7 @@ header('Content-Type: text/html; charset=utf-8');
                 
                 checkParameters($firstLine, $fieldsExpected, 0);
                 
-                $multiQuery = $multiQuery. "INSERT INTO cliente VALUES('$firstLine[0]','$firstLine[1]',
+                $multiQuery = $multiQuery. "INSERT INTO cliente (cedula, correo, nit, nombres, apellidos, tipo_usuario, telefono) VALUES('$firstLine[0]','$firstLine[1]',
                 '$firstLine[2]', '$firstLine[3]', '$firstLine[4]', $firstLine[5], '$firstLine[6]');"; 
 
                 
@@ -60,7 +60,7 @@ header('Content-Type: text/html; charset=utf-8');
          
                     checkParameters($line, $fieldsExpected, $index);
 
-                    $multiQuery = $multiQuery. "INSERT INTO cliente VALUES('$line[0]','$line[1]',
+                    $multiQuery = $multiQuery. "INSERT INTO 'cliente' (cedula, correo, nit, nombres, apellidos, tipo_usuario, telefono) VALUES('$line[0]','$line[1]',
                      '$line[2]', '$line[3]', '$line[4]', $line[5], '$line[6]');"; 
 
                     $index++;
@@ -68,8 +68,15 @@ header('Content-Type: text/html; charset=utf-8');
                 fclose($file);
                 
                 $connection = new mysqli($server, $user, $password, $db);
-    
-                echo json_encode(["status" => 1, "message" => "Verificación exitosa"]);
+       
+                if($connection->multi_query($multiQuery))
+                {
+                    echo json_encode(["status" => 1, "message" => "Verificación exitosa"]);
+                } 
+                else
+                {
+                    echo json_encode(["status" => 0, "message" => "Ocurrió una tragedia", "object" => $connection->error, "query" => $multiQuery]); 
+                }
 
                 $connection->close();
             }
