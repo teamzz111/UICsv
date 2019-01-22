@@ -314,12 +314,15 @@ section.step2 {
 }
 
 section.step3 .container .der .message {
-  background: red;
+  background: white;
   padding: 2%;
-  color: white;
-  max-width: 200px;
+  text-transform: uppercase;
+  max-width: 300px;
   margin: auto;
   margin-top: 2em;
+  font-size: 1.2em;
+  font-family: "Open Sans";
+  color: White;
 }
 
 .lds-roller {

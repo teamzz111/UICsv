@@ -1,9 +1,9 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
     // Global configuration for fields expected
 
     global $fieldsExpected;
     $fieldsExpected = 7;
-
     // DB Connection
 
     $user = "root";
