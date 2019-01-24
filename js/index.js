@@ -26,15 +26,16 @@ $(document).ready(function () {
                                 else
                                 {
                                     $('section.step3 .container .der .message').css({background: "#ff0000", textAlign: "center", textTransform: "none"})
-                                    $('section.step3 .container .der .message').text(successMessage.message);
+                                    $('section.step3 .container .der .message').text(successMessage.message + " " + successMessage.object.replace("Duplicate entry", "'Entrada duplicada").replace("for key", "para el campo") )
+
                                 }
-                                $('section.step3 .container .der .message').text(successMessage.message + " " + successMessage.object.replace("Duplicate entry", "'Entrada duplicada").replace("for key", "para el campo") +" en la línea ")
 
                             })
                         })
                     },
                     error: function (xhr, status, error) {
-                        console.log(xhr.responseText);
+                        $('section.step3 .container .der .message').css({background: "#ff0000", textAlign: "center", textTransform: "none"})
+                        $('section.step3 .container .der .message').text(error);
                     }
                 });
             })

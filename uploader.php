@@ -78,11 +78,11 @@ header('Content-Type: text/html; charset=utf-8');
                 $multiQuery = trim(preg_replace('/\s+/', ' ', $multiQuery));
                 if($connection->multi_query($multiQuery))
                 {
-                    echo json_encode(["status" => 1, "message" => "Verificación exitosa, datos insertados correctamente","query" => $multiQuery]);
+                    echo json_encode(["status" => 1, "message" => "Verificación exitosa, datos insertados correctamente"]);
                 } 
                 else
                 {
-                    echo json_encode(["status" => 0, "message" => "Tenemos un pequeño error", "object" => $connection->error, "query" => $multiQuery]); 
+                    echo json_encode(["status" => 0, "message" => "Tenemos un pequeño error", "object" => $connection->error]); 
                 }
 
                 $connection->close();
