@@ -21,12 +21,14 @@ $(document).ready(function () {
                                 if(successMessage.status == 1)
                                 {
                                     $('section.step3 .container .der .message').css({background: "#00ff00", textAlign: "center"})
+                                    $('section.step3 .container .der .message').text(successMessage.message);
                                 } 
                                 else
                                 {
                                     $('section.step3 .container .der .message').css({background: "#ff0000", textAlign: "center", textTransform: "none"})
+                                    $('section.step3 .container .der .message').text(successMessage.message);
                                 }
-                                $('section.step3 .container .der .message').text(successMessage.message)
+                                $('section.step3 .container .der .message').text(successMessage.message + " " + successMessage.object.replace("Duplicate entry", "'Entrada duplicada").replace("for key", "para el campo") +" en la línea ")
 
                             })
                         })
@@ -49,8 +51,9 @@ $(document).ready(function () {
         $('.step1 .container .der form i').addClass("fa-check")
         $('.step1 .container .der form span').text("Archivo cargado con éxito")
         $('.step1 .container .der form .label').css({
-            border: "2px dashed lightgreen"
+            border: "2px dashed #00ff00"
         })
+        $('.step1 .container .der form i').css("color", "black")
         $('.step1 .container .der form .title').css("color", "black")
     });
 })

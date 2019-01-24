@@ -16,9 +16,16 @@ header('Content-Type: text/html; charset=utf-8');
         if ($_FILES["file"]["error"] > 0) 
         {
             echo json_encode(["status" => 0, "message" => $_FILES["file"]["error"]]);
+            die();
         }
         else 
         {
+            if($_FILES["file"]["type"] != "application/octet-stream")
+            {
+                echo json_encode(["status" => 0, "message" => "Campo de archivo no conocido"]);  
+                die();
+            }
+
             $multiQuery = "";
             $file = fopen($_FILES['file']['tmp_name'], 'r');
             
@@ -60,7 +67,7 @@ header('Content-Type: text/html; charset=utf-8');
          
                     checkParameters($line, $fieldsExpected, $index);
 
-                    $multiQuery = $multiQuery. "INSERT INTO 'cliente' (cedula, correo, nit, nombres, apellidos, tipo_usuario, telefono) VALUES('$line[0]','$line[1]',
+                    $multiQuery = $multiQuery. "INSERT INTO cliente (cedula, correo, nit, nombres, apellidos, tipo_usuario, telefono) VALUES('$line[0]','$line[1]',
                      '$line[2]', '$line[3]', '$line[4]', $line[5], '$line[6]');"; 
 
                     $index++;
@@ -68,14 +75,14 @@ header('Content-Type: text/html; charset=utf-8');
                 fclose($file);
                 
                 $connection = new mysqli($server, $user, $password, $db);
-       
+                $multiQuery = trim(preg_replace('/\s+/', ' ', $multiQuery));
                 if($connection->multi_query($multiQuery))
                 {
-                    echo json_encode(["status" => 1, "message" => "Verificación exitosa"]);
+                    echo json_encode(["status" => 1, "message" => "Verificación exitosa, datos insertados correctamente","query" => $multiQuery]);
                 } 
                 else
                 {
-                    echo json_encode(["status" => 0, "message" => "Ocurrió una tragedia", "object" => $connection->error, "query" => $multiQuery]); 
+                    echo json_encode(["status" => 0, "message" => "Tenemos un pequeño error", "object" => $connection->error, "query" => $multiQuery]); 
                 }
 
                 $connection->close();
@@ -94,7 +101,7 @@ function checkParameters($line, $fieldsExpected, $index)
 
     if(sizeof($line) <  $fieldsExpected)
     {
-        echo json_encode(["status" => 0, "message" => "Campos incompletos en $index"]);
+        echo json_encode(["status" => 0, "message" => "Campos incompletos en la línea $index"]);
         die();       
     }
 

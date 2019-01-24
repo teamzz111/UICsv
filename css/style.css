@@ -236,81 +236,12 @@ section.step3 .container .der .label:hover .title {
   color: black;
 }
 
-section.step1 .container .der .label,
-section.step2 .container .der .label,
-section.step3 .container .der .label {
-  width: 90%;
-  margin: auto;
-  margin-top: 1.1em;
-  border: 2px dashed grey;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 1.2em;
-  -webkit-transition: border 300ms ease;
-  transition: border 300ms ease;
-  cursor: pointer;
-  text-align: center;
-}
-
-section.step1 .container .der .label:focus,
-section.step2 .container .der .label:focus,
-section.step3 .container .der .label:focus {
-  background: black;
-  color: red;
-}
-
-section.step1 .container .der .label i,
-section.step2 .container .der .label i,
-section.step3 .container .der .label i {
-  display: block;
-  font-size: 42px;
-}
-
-section.step1 .container .der .label i,
-section.step1 .container .der .label .title,
-section.step2 .container .der .label i,
-section.step2 .container .der .label .title,
-section.step3 .container .der .label i,
-section.step3 .container .der .label .title {
-  color: grey;
-  -webkit-transition: 200ms color;
-  transition: 200ms color;
-  margin: 0.2em;
-}
-
-section.step1 .container .der .label .title,
-section.step2 .container .der .label .title,
-section.step3 .container .der .label .title {
-  font-family: 'Open Sans';
-  margin-top: 0.7em;
-}
-
-section.step1 .container .der .label:hover,
-section.step2 .container .der .label:hover,
-section.step3 .container .der .label:hover {
-  border: 2px solid black;
-}
-
-section.step1 .container .der .label:hover i,
-section.step1 .container .der .label:hover .title,
-section.step2 .container .der .label:hover i,
-section.step2 .container .der .label:hover .title,
-section.step3 .container .der .label:hover i,
-section.step3 .container .der .label:hover .title {
-  color: black;
-}
-
 section.step2 {
   background: #fafafa;
+}
+
+section.step3 .container .der {
+  text-align: center;
 }
 
 section.step3 .container .der .message {
@@ -320,9 +251,27 @@ section.step3 .container .der .message {
   max-width: 300px;
   margin: auto;
   margin-top: 2em;
-  font-size: 1.2em;
+  font-size: .9em;
   font-family: "Open Sans";
   color: White;
+}
+
+section.step3 .container .der button.return {
+  padding: .7em 1.3em .7em 1.3em;
+  margin: auto;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  margin-top: 2em;
+  border-radius: .6em;
+  -webkit-transition: 1s linear;
+  transition: 1s linear;
+}
+
+section.step3 .container .der button.return:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
 }
 
 .lds-roller {
