@@ -18,16 +18,20 @@ $(document).ready(function () {
                         var successMessage = JSON.parse(data);
                         $('section.step2').fadeOut(1000, function(){
                             $('section.step3').fadeIn(500, function(){
-                                if(successMessage.status == 1)
+                                if(successMessage[0].status == 1)
                                 {
                                     $('section.step3 .container .der .message').css({background: "#00ff00", textAlign: "center"})
-                                    $('section.step3 .container .der .message').text(successMessage.message);
+                                    $('section.step3 .container .der .message').text(successMessage[0].message);
+                                    
                                 } 
                                 else
                                 {
                                     $('section.step3 .container .der .message').css({background: "#ff0000", textAlign: "center", textTransform: "none"})
-                                    $('section.step3 .container .der .message').text(successMessage.message + " " + successMessage.object.replace("Duplicate entry", "'Entrada duplicada").replace("for key", "para el campo") )
-
+                                   // $('section.step3 .container .der .message').text(successMessage.message + " " + successMessage.object.replace("Duplicate entry", "'Entrada duplicada").replace("for key", "para el campo") )
+                                   $('section.step3 .container .der .message').text("Houston tenemos un pequeño problema");
+                                   $.each(successMessage, function( index, value ) {
+                                        $('section.step3 .container .der .errors ul').append('<li>' + value.message + '</li>')
+                                  });
                                 }
 
                             })
